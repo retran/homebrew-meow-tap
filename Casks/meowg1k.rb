@@ -18,22 +18,29 @@ cask "meowg1k" do
   on_macos do
     on_intel do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_darwin_amd64.tar.gz"
-      sha256 "9e0c3fb4dc84b2f129c255622a1b173a9d51684dab178c980980d84d428aa073"
+      sha256 "0323fdef84348ede9328a0b3e3d21777e24dbea7fa17a50919d20025a35f7e8e"
     end
     on_arm do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_darwin_arm64.tar.gz"
-      sha256 "b9033ac3474253de2bebbc837f9a79e7320e716020ea50d429e488ce5e19ae4c"
+      sha256 "36891b1df02d33e9a1748a1f4025a3fe9f07c0e85c28f47d5c3fcd0ce0aa409d"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_linux_amd64.tar.gz"
-      sha256 "dc59efd456d96f1f19c15414efbc81cb409bbe0bc08761be9986fd6c9d5b7482"
+      sha256 "320ba80f8d1008a5fd2a39432341adb12a562e27d01b9a7ca57927fc67503729"
     end
     on_arm do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_linux_arm64.tar.gz"
-      sha256 "7b79273c106d6437f548a1059a36c21176fdf17019727ff44ef5cfe551b575b4"
+      sha256 "6b5c9c36004ae2a951af60928d5e145b41676bcfdd27ac238ab1ac600800bf58"
+    end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "#{staged_path}/meow"]
     end
   end
 
