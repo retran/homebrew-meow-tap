@@ -18,22 +18,22 @@ cask "meowg1k" do
   on_macos do
     on_intel do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_darwin_amd64.tar.gz"
-      sha256 "d6ae8298eb6f1336d6ea94b7bfd4c83fdb76c004379aec49c735fa25a4e28811"
+      sha256 "9e0c3fb4dc84b2f129c255622a1b173a9d51684dab178c980980d84d428aa073"
     end
     on_arm do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_darwin_arm64.tar.gz"
-      sha256 "11bdfcbd848580b78380880a6cb0aa7a25b96f9e71b76b2a3ecf2ff1a3130d5e"
+      sha256 "b9033ac3474253de2bebbc837f9a79e7320e716020ea50d429e488ce5e19ae4c"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_linux_amd64.tar.gz"
-      sha256 "1fd46c1d68e133ec34bdf287487e0992480f9b54a454c145f5a2f41794ccd627"
+      sha256 "dc59efd456d96f1f19c15414efbc81cb409bbe0bc08761be9986fd6c9d5b7482"
     end
     on_arm do
       url "https://github.com/retran/meowg1k/releases/download/v0.1.0/meowg1k_0.1.0_linux_arm64.tar.gz"
-      sha256 "445822894a580e467aac6bfa3d0e7a461871d2a2bc331b4d8cbfda0724d1363d"
+      sha256 "7b79273c106d6437f548a1059a36c21176fdf17019727ff44ef5cfe551b575b4"
     end
   end
 
@@ -42,22 +42,22 @@ cask "meowg1k" do
     "----------------------------"
     "• Gemini (cloud):"
     "    Set API key:"
-    "      export MEOW_GEMINI_API_KEY="your_api_key""
+    "      export MEOW_GEMINI_API_KEY='your_api_key'"
     ""
     "    Quick start:"
-    "      cat main.go | meow generate -m gemini-2.5-pro -p "Explain this code""
-    "      cat component.js | meow g -m gemini-2.5-flash -p "Refactor for performance""
-    "      cat utils.go | meow g -m gemini-2.5-pro -s "You are a senior Go engineer reviewing code for concurrency issues" -p "Check this code for potential race conditions""
+    "      cat main.go | meow generate -m gemini-2.5-pro -p 'Explain this code'"
+    "      cat component.js | meow g -m gemini-2.5-flash -p 'Refactor for performance'"
+    "      cat utils.go | meow g -m gemini-2.5-pro -s 'You are a senior Go engineer reviewing code for concurrency issues' -p 'Check this code for potential race conditions'"
     ""
     "    Defaults via config:"
     "      generate:"
-    "        defaultProvider: "gemini""
-    "        defaultModel: "gemini-2.5-flash""
-    "        defaultTimeout: "5m""
+    "        defaultProvider: gemini"
+    "        defaultModel: gemini-2.5-flash"
+    "        defaultTimeout: 5m"
     ""
     "• LLaMA (local llama.cpp):"
     "    Start server separately, then connect (model is chosen by server):"
-    "      meow g -P llama -u http://127.0.0.1:8080 -p "Summarize this code""
+    "      meow g -P llama -u http://127.0.0.1:8080 -p 'Summarize this code'"
     ""
     "🧱 Tasks (reusable prompts)"
     "---------------------------"
@@ -65,15 +65,15 @@ cask "meowg1k" do
     "    generate:"
     "      tasks:"
     "        pytest-gemini:"
-    "          provider: "gemini""
-    "          model: "gemini-2.5-pro""
-    "          systemPrompt: "You are an expert Python TDD developer.""
-    "          userPrompt: "Write a complete pytest test file for the following code.""
+    "          provider: gemini"
+    "          model: gemini-2.5-pro"
+    "          systemPrompt: You are an expert Python TDD developer."
+    "          userPrompt: Write a complete pytest test file for the following code."
     "        refactor-llama:"
-    "          provider: "llama""
-    "          llamaBaseURL: "http://127.0.0.1:8080""
-    "          systemPrompt: "You write clean, performant Rust.""
-    "          userPrompt: "Refactor for clarity and speed.""
+    "          provider: llama"
+    "          llamaBaseURL: http://127.0.0.1:8080"
+    "          systemPrompt: You write clean, performant Rust."
+    "          userPrompt: Refactor for clarity and speed."
     ""
     "  Run:"
     "    cat app.py | meow g -t pytest-gemini"
